@@ -1,6 +1,7 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Offcanvas, Row } from "react-bootstrap";
 import TopBar from "./TopBar";
-import { useEffect } from "react";
+import LeftSideBar from "./homepageSubComponents/LeftSideBar";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
