@@ -1,5 +1,5 @@
 import { LOGOUT } from "../Actions/HomePageActions";
-import { EMAIL_VALIDATION, PASSWORD_VALIDATION, SAVE_TOKEN } from "../Actions/LoginActions";
+import { SAVE_TOKEN } from "../Actions/LoginActions";
 
 const initialState = {
   respLogin: {

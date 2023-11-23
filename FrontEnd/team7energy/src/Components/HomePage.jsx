@@ -19,9 +19,7 @@ const HomePage = () => {
       <TopBar />
       <Container fluid>
         <Row>
-          <Col>
-            <ClientSection />
-          </Col>
+          <ClientSection />
         </Row>
       </Container>
     </div>

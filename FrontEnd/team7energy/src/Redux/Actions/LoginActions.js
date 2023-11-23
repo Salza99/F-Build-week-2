@@ -1,5 +1,3 @@
-export const EMAIL_VALIDATION = "EMAIL_VALIDATION";
-export const PASSWORD_VALIDATION = "PASSWORD_VALIDATION";
 export const SAVE_TOKEN = "SAVE_TOKEN";
 
 export const fetchLogin = (stateEmail, statePassword) => {

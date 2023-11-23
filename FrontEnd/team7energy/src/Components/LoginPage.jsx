@@ -1,6 +1,6 @@
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { EMAIL_VALIDATION, PASSWORD_VALIDATION, fetchLogin } from "../Redux/Actions/LoginActions";
+import { fetchLogin } from "../Redux/Actions/LoginActions";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
