@@ -1,13 +1,15 @@
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { EMAIL_VALIDATION, PASSWORD_VALIDATION, fetchLogin } from "../Redux/Actions/LoginActions";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const loginState = useSelector((state) => state.login);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   useEffect(() => {
     if (loginState.respLogin.authorizationToken) {
       navigate("/homepage");
@@ -22,7 +24,7 @@ const LoginPage = () => {
               <Form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  dispatch(fetchLogin(loginState.validationContent.email, loginState.validationContent.password));
+                  dispatch(fetchLogin(email, password));
                 }}
               >
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -30,9 +32,9 @@ const LoginPage = () => {
                   <Form.Control
                     type="email"
                     placeholder="Enter email"
-                    value={loginState.validationContent.email}
+                    value={email}
                     onChange={(e) => {
-                      dispatch({ type: EMAIL_VALIDATION, payload: e.target.value });
+                      setEmail(e.target.value);
                     }}
                   />
                 </Form.Group>
@@ -41,9 +43,9 @@ const LoginPage = () => {
                   <Form.Control
                     type="password"
                     placeholder="Password"
-                    value={loginState.validationContent.password}
+                    value={password}
                     onChange={(e) => {
-                      dispatch({ type: PASSWORD_VALIDATION, payload: e.target.value });
+                      setPassword(e.target.value);
                     }}
                   />
                 </Form.Group>

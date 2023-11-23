@@ -4,6 +4,7 @@ import LeftSideBar from "./homepageSubComponents/LeftSideBar";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import ClientSection from "./homepageSubComponents/ClientSection";
 
 const HomePage = () => {
   const isLogout = useSelector((state) => state.login.respLogin.authorizationToken.token);
@@ -19,7 +20,9 @@ const HomePage = () => {
       <TopBar />
       <Container fluid>
         <Row>
-          <Col></Col>
+          <Col>
+            <ClientSection />
+          </Col>
         </Row>
       </Container>
     </div>
