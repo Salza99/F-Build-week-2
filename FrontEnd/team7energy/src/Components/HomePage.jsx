@@ -1,8 +1,18 @@
 import { Col, Container, Row } from "react-bootstrap";
 import TopBar from "./TopBar";
 import LeftSideBar from "./homepageSubComponents/LeftSideBar";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
+  const isLogout = useSelector((state) => state.login.respLogin.authorizationToken.token);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!isLogout) {
+      navigate("/");
+    }
+  }, [isLogout]);
   return (
     <div>
       <TopBar />

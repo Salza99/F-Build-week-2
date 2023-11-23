@@ -1,4 +1,4 @@
-import { MY_PROFILE_INFO } from "../Actions/HomePageActions";
+import { LOGOUT, MY_PROFILE_INFO } from "../Actions/HomePageActions";
 
 const initialState = {
   userContent: {
@@ -25,6 +25,19 @@ const HomePageReducer = (state = initialState, action) => {
           username: action.payload.username,
           role: action.payload.role,
           avatarUrl: action.payload.avatarUrl,
+        },
+      };
+    case LOGOUT:
+      return {
+        ...state,
+        userContent: {
+          id: action.payload,
+          name: action.payload,
+          surname: action.payload,
+          email: action.payload,
+          username: action.payload,
+          role: action.payload,
+          avatarUrl: action.payload,
         },
       };
     default:

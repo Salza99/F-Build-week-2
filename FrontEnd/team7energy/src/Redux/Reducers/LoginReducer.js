@@ -1,3 +1,4 @@
+import { LOGOUT } from "../Actions/HomePageActions";
 import { EMAIL_VALIDATION, PASSWORD_VALIDATION, SAVE_TOKEN } from "../Actions/LoginActions";
 
 const initialState = {
@@ -32,6 +33,16 @@ const LoginReducer = (state = initialState, action) => {
       return {
         ...state,
         ...state.validationContent,
+        respLogin: {
+          authorizationToken: action.payload,
+        },
+      };
+    case LOGOUT:
+      return {
+        validationContent: {
+          email: action.payload,
+          password: action.payload,
+        },
         respLogin: {
           authorizationToken: action.payload,
         },

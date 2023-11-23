@@ -1,4 +1,5 @@
 export const MY_PROFILE_INFO = "MY_PROFILE_INFO";
+export const LOGOUT = "LOGOUT";
 
 export const fetchMeProfile = (token) => {
   return async (dispatch) => {
