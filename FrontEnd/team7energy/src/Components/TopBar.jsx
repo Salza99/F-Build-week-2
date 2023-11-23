@@ -1,10 +1,10 @@
-import { Button, Col, Container, Form, Nav, Navbar, Offcanvas } from "react-bootstrap";
+import { Button, Container, Form, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 
 import { LOGOUT } from "../Redux/Actions/HomePageActions";
 import LeftSideBar from "./homepageSubComponents/LeftSideBar";
 import { useState } from "react";
-
+import { ChevronDoubleRight } from "react-bootstrap-icons";
 const TopBar = () => {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
@@ -14,26 +14,23 @@ const TopBar = () => {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Col>
-          <Button variant="primary" onClick={handleShow} className="">
-            User info
-          </Button>
-          <Offcanvas show={show} onHide={handleClose}>
-            <Offcanvas.Header closeButton>
-              <Offcanvas.Title>
-                <LeftSideBar />
-              </Offcanvas.Title>
-            </Offcanvas.Header>
-            <Offcanvas.Body>
-              Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images,
-              lists, etc.
-            </Offcanvas.Body>
-          </Offcanvas>
-        </Col>
-        <Navbar.Brand>
+        <ChevronDoubleRight variant="primary" onClick={handleShow} />
+        <Offcanvas show={show} onHide={handleClose}>
+          <Offcanvas.Header closeButton>
+            <Offcanvas.Title>
+              <LeftSideBar />
+            </Offcanvas.Title>
+          </Offcanvas.Header>
+          <Offcanvas.Body>
+            Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists,
+            etc.
+          </Offcanvas.Body>
+        </Offcanvas>
+
+        <Navbar.Brand className="me-2">
           <img className="logo" src="/src/assets/logo.png" alt="Logo Team7Energy" />
         </Navbar.Brand>
-        <Form className="d-flex">
+        <Form className="d-flex me-2">
           <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search" />
           <Button variant="outline-success">Search</Button>
         </Form>
