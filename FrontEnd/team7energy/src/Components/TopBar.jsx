@@ -1,11 +1,11 @@
-import { Button, Col, Container, Form, Nav, Navbar, Offcanvas } from "react-bootstrap";
+import { Button, Container, Form, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 
 import { LOGOUT } from "../Redux/Actions/HomePageActions";
 import LeftSideBar from "./homepageSubComponents/LeftSideBar";
 import { useState } from "react";
 import CanvasUserDetails from "./homepageSubComponents/CanvasUserDetail";
-
+import { ChevronDoubleRight } from "react-bootstrap-icons";
 const TopBar = () => {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
@@ -15,16 +15,18 @@ const TopBar = () => {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Col>
-          <Button variant="primary" onClick={handleShow} className="">
-            User info
-          </Button>
-          <CanvasUserDetails show={show} handleShow={handleShow} handleClose={handleClose} />
-        </Col>
-        <Navbar.Brand>
+        <ChevronDoubleRight variant="primary" onClick={handleShow} />
+        <CanvasUserDetails show={show} handleShow={handleShow} handleClose={handleClose} />
+
+        <Navbar.Brand className="me-2">
           <img className="logo" src="/src/assets/logo.png" alt="Logo Team7Energy" />
         </Navbar.Brand>
-        <Form className="d-flex">
+        <Form
+          className="d-flex me-2"
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
           <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search" />
           <Button variant="outline-success">Search</Button>
         </Form>
