@@ -1,8 +1,8 @@
-import { Button, Container, Form, Nav, Navbar, Offcanvas } from "react-bootstrap";
+import { Button, Container, Form, Nav, Navbar } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 
 import { LOGOUT } from "../Redux/Actions/HomePageActions";
-import LeftSideBar from "./homepageSubComponents/LeftSideBar";
+
 import { useState } from "react";
 import CanvasUserDetails from "./homepageSubComponents/CanvasUserDetail";
 import { ChevronDoubleRight } from "react-bootstrap-icons";
@@ -13,12 +13,12 @@ const TopBar = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
-        <ChevronDoubleRight variant="primary" onClick={handleShow} />
+    <Navbar expand="lg" className="bg-body-tertiary d-flex justify-content-between">
+      <Container className="d-flex mx-0 px-0 ">
+        <ChevronDoubleRight className="me-5" variant="primary" onClick={handleShow} />
         <CanvasUserDetails show={show} handleShow={handleShow} handleClose={handleClose} />
 
-        <Navbar.Brand className="me-2">
+        <Navbar.Brand className="ms-5 me-5">
           <img className="logo" src="/src/assets/logo.png" alt="Logo Team7Energy" />
         </Navbar.Brand>
         <Form
@@ -27,12 +27,12 @@ const TopBar = () => {
             e.preventDefault();
           }}
         >
-          <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search" />
+          <Form.Control type="search" placeholder="Search" className="justify-content-center" aria-label="Search" />
           <Button variant="outline-success">Search</Button>
         </Form>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+          <Nav className="">
             <Nav.Link>Home</Nav.Link>
             <Nav.Link>Link</Nav.Link>
             <Nav.Link
