@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { LOGOUT } from "../Redux/Actions/HomePageActions";
 import LeftSideBar from "./homepageSubComponents/LeftSideBar";
 import { useState } from "react";
+import CanvasUserDetails from "./homepageSubComponents/CanvasUserDetail";
 
 const TopBar = () => {
   const dispatch = useDispatch();
@@ -18,17 +19,7 @@ const TopBar = () => {
           <Button variant="primary" onClick={handleShow} className="">
             User info
           </Button>
-          <Offcanvas show={show} onHide={handleClose}>
-            <Offcanvas.Header closeButton>
-              <Offcanvas.Title>
-                <LeftSideBar />
-              </Offcanvas.Title>
-            </Offcanvas.Header>
-            <Offcanvas.Body>
-              Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images,
-              lists, etc.
-            </Offcanvas.Body>
-          </Offcanvas>
+          <CanvasUserDetails show={show} handleShow={handleShow} handleClose={handleClose} />
         </Col>
         <Navbar.Brand>
           <img className="logo" src="/src/assets/logo.png" alt="Logo Team7Energy" />
