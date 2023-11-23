@@ -1,7 +1,7 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Offcanvas, Row } from "react-bootstrap";
 import TopBar from "./TopBar";
 import LeftSideBar from "./homepageSubComponents/LeftSideBar";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -13,15 +13,32 @@ const HomePage = () => {
       navigate("/");
     }
   }, [isLogout]);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <div>
       <TopBar />
       <Container fluid>
         <Row>
-          <Col xs={12} md={4}>
-            <LeftSideBar />
+          <Col>
+            <Button variant="primary" onClick={handleShow} className="">
+              User info
+            </Button>
+            <Offcanvas show={show} onHide={handleClose}>
+              <Offcanvas.Header closeButton>
+                <Offcanvas.Title>
+                  <LeftSideBar />
+                </Offcanvas.Title>
+              </Offcanvas.Header>
+              <Offcanvas.Body>
+                Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images,
+                lists, etc.
+              </Offcanvas.Body>
+            </Offcanvas>
           </Col>
-          <Col></Col>
         </Row>
       </Container>
     </div>
