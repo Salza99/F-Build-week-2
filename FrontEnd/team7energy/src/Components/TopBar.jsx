@@ -6,7 +6,7 @@ import { LOGOUT } from "../Redux/Actions/HomePageActions";
 import { useState } from "react";
 import CanvasUserDetails from "./homepageSubComponents/CanvasUserDetail";
 import { ChevronDoubleRight, Search } from "react-bootstrap-icons";
-import { searchByCompanyName } from "../Redux/Actions/ClientActions";
+import { searchByCompanyName, fetchAllClients } from "../Redux/Actions/ClientActions";
 const TopBar = () => {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
@@ -53,7 +53,13 @@ const TopBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav className="">
-            <Nav.Link>Home</Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                dispatch(fetchAllClients(loginState.authorizationToken.token));
+              }}
+            >
+              Home
+            </Nav.Link>
             <Nav.Link>Link</Nav.Link>
             <Nav.Link
               onClick={() => {
