@@ -1,14 +1,17 @@
 import { Button, Container, Form, Nav, Navbar } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { LOGOUT } from "../Redux/Actions/HomePageActions";
 
 import { useState } from "react";
 import CanvasUserDetails from "./homepageSubComponents/CanvasUserDetail";
 import { ChevronDoubleRight } from "react-bootstrap-icons";
+import { searchByCompanyName } from "../Redux/Actions/ClientActions";
 const TopBar = () => {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
+  const [wordToSearch, setWordToSearch] = useState("");
+  const loginState = useSelector((state) => state.login.respLogin);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -27,8 +30,24 @@ const TopBar = () => {
             e.preventDefault();
           }}
         >
-          <Form.Control type="search" placeholder="Search" className="justify-content-center" aria-label="Search" />
-          <Button variant="outline-success">Search</Button>
+          <Form.Control
+            type="search"
+            placeholder="Search"
+            className="justify-content-center"
+            value={wordToSearch}
+            aria-label="Search"
+            onChange={(e) => {
+              setWordToSearch(e.target.value);
+            }}
+          />
+          <Button
+            variant="outline-success"
+            onClick={() => {
+              dispatch(searchByCompanyName(loginState.authorizationToken.token, wordToSearch));
+            }}
+          >
+            Search
+          </Button>
         </Form>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
