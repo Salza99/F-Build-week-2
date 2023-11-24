@@ -1,8 +1,9 @@
-import { FETCH_PAGE_CLIENTS } from "../Actions/ClientActions";
+import { COMPANY_SEARCH_RESULT, FETCH_PAGE_CLIENTS } from "../Actions/ClientActions";
 import { LOGOUT } from "../Actions/HomePageActions";
 
 const initialState = {
-  allClient: "",
+  allClient: { content: [] },
+  searchedClients: [],
 };
 
 const ClientReducer = (state = initialState, action) => {
@@ -12,10 +13,17 @@ const ClientReducer = (state = initialState, action) => {
         ...state,
         allClient: action.payload,
       };
+    case COMPANY_SEARCH_RESULT:
+      return {
+        allClient: { content: [] },
+        searchedClients: action.payload,
+      };
     case LOGOUT:
       return {
-        allClient: action.payload,
+        allClient: { content: [] },
+        searchedClients: [],
       };
+
     default:
       return state;
   }

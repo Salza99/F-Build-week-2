@@ -1,14 +1,17 @@
 import { Button, Container, Form, Nav, Navbar } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { LOGOUT } from "../Redux/Actions/HomePageActions";
 
 import { useState } from "react";
 import CanvasUserDetails from "./homepageSubComponents/CanvasUserDetail";
 import { ChevronDoubleRight, Search } from "react-bootstrap-icons";
+import { searchByCompanyName } from "../Redux/Actions/ClientActions";
 const TopBar = () => {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
+  const [wordToSearch, setWordToSearch] = useState("");
+  const loginState = useSelector((state) => state.login.respLogin);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -31,10 +34,20 @@ const TopBar = () => {
             type="search"
             placeholder="Search"
             className="rounded-pill justify-content-center"
+            value={wordToSearch}
             aria-label="Search"
+            onChange={(e) => {
+              setWordToSearch(e.target.value);
+            }}
           />
-          <Button className="border-0 btn-lg fs-3" variant="outline-black">
-            <Search></Search>
+          <Button
+            className="border-0 btn-lg fs-3"
+            variant="outline-black"
+            onClick={() => {
+              dispatch(searchByCompanyName(loginState.authorizationToken.token, wordToSearch));
+            }}
+          >
+            <Search />
           </Button>
         </Form>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
