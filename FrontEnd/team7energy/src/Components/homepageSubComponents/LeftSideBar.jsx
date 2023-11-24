@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMeProfile } from "../../Redux/Actions/HomePageActions";
 import { Card, Col, ListGroup, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const LeftSideBar = () => {
   const loginState = useSelector((state) => state.login);
@@ -35,8 +36,7 @@ const LeftSideBar = () => {
                 <ListGroup.Item>profile: {homepageState.role}</ListGroup.Item>
               </ListGroup>
               <Card.Body>
-                <Card.Link href="#">Card Link</Card.Link>
-                <Card.Link href="#">Another Link</Card.Link>
+                <Link to="/yourBills">Your Client</Link>
               </Card.Body>
             </Card>
           </Col>
