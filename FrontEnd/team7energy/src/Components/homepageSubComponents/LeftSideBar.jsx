@@ -20,23 +20,22 @@ const LeftSideBar = () => {
       {homepageState.avatarUrl && (
         <>
           <Col xs={12}>
-            <Card>
+            <Card className="border-0">
               <div className="d-flex justify-content-center">
                 <Card.Img className="img-fluid rounded-circle w-75" variant="top" src={homepageState.avatarUrl} />
               </div>
               <Card.Body>
-                <Card.Title>{homepageState.username}</Card.Title>
+                <Card.Title>Username : {homepageState.username}</Card.Title>
               </Card.Body>
               <ListGroup className="list-group-flush">
-                <ListGroup.Item>{homepageState.email}</ListGroup.Item>
                 <ListGroup.Item>
-                  {homepageState.name} {homepageState.surname}
+                  Resource : {homepageState.name} {homepageState.surname}
                 </ListGroup.Item>
-                <ListGroup.Item>profile: {homepageState.role}</ListGroup.Item>
+                <ListGroup.Item>Email : {homepageState.email}</ListGroup.Item>
+                <ListGroup.Item>Role : {homepageState.role}</ListGroup.Item>
               </ListGroup>
               <Card.Body>
                 <Card.Link href="#">Card Link</Card.Link>
-                <Card.Link href="#">Another Link</Card.Link>
               </Card.Body>
             </Card>
           </Col>

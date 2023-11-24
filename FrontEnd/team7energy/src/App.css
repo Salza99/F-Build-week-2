@@ -35,8 +35,12 @@ h6 {
   height: max-content;
 }
 .full {
+  height: max-content;
+}
+.fulllog {
   height: 100vh;
 }
+
 .logo {
   height: 30px;
 }

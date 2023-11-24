@@ -16,7 +16,7 @@ const LoginPage = () => {
     }
   }, [loginState.respLogin.authorizationToken]);
   return (
-    <Container className="p-4 full">
+    <Container className="p-4 fulllog">
       <Row className="h-100">
         <Col className="d-flex flex-column align-items-center justify-content-center h-100">
           <Card className="w-25">
