@@ -22,3 +22,71 @@ export const fetchLogin = (stateEmail, statePassword) => {
     }
   };
 };
+export const fetchRegister = (name, surname, email, password, username) => {
+  return async () => {
+    try {
+      const resp = await fetch("http://localhost:3002/auth/register", {
+        method: "POST",
+        body: JSON.stringify({
+          name,
+          surname,
+          password,
+          email,
+          username,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (resp.ok) {
+        console.log("utente registrato");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+export const fetchRegisterClient = (
+  contactName,
+  contactSurname,
+  contactEmail,
+  contactPhone,
+  phone,
+  companyName,
+  VATNumber,
+  email,
+  annualTurnHover,
+  pec,
+  companyLogo,
+  businessName
+) => {
+  return async () => {
+    try {
+      const resp = await fetch("http://localhost:3002/auth/client", {
+        method: "POST",
+        body: JSON.stringify({
+          contactName,
+          contactSurname,
+          contactEmail,
+          contactPhone,
+          phone,
+          companyName,
+          VATNumber,
+          email,
+          annualTurnHover,
+          pec,
+          companyLogo,
+          businessName,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (resp.ok) {
+        console.log("cliente registrato");
+      }
+    } catch (err) {
+      console.log(err.getMessage());
+    }
+  };
+};
