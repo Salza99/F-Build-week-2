@@ -29,7 +29,7 @@ const ClientSection = () => {
           return <SingleClient client={client} key={client.id} />;
         })
       ) : (
-        <h3 className="text-white">Nessun risultato trovato!</h3>
+        <h3 className="text-white">No result or empty search bar!</h3>
       )}
     </>
   );
