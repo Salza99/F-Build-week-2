@@ -32,7 +32,7 @@ const LeftSideBar = () => {
                   Resource : {homepageState.name} {homepageState.surname}
                 </ListGroup.Item>
                 <ListGroup.Item>Email : {homepageState.email}</ListGroup.Item>
-                <ListGroup.Item>Role : {homepageState.role}</ListGroup.Item>
+                <ListGroup.Item className="border-bottom">Role : {homepageState.role}</ListGroup.Item>
               </ListGroup>
               <Card.Body>
                 <Card.Link href="#">Card Link</Card.Link>
