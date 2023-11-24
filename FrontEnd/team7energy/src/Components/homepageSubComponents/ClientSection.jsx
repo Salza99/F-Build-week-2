@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllClients } from "../../Redux/Actions/ClientActions";
 import SingleClient from "./SingleClient";
+import { Alert } from "react-bootstrap";
 
 const ClientSection = () => {
   const loginState = useSelector((state) => state.login.respLogin);
@@ -29,7 +30,7 @@ const ClientSection = () => {
           return <SingleClient client={client} key={client.id} />;
         })
       ) : (
-        <h3 className="text-white">No result or empty search bar!</h3>
+        <Alert variant="danger">No result or empty search bar!!</Alert>
       )}
     </>
   );
