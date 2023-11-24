@@ -1,4 +1,4 @@
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import TopBar from "./TopBar";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
