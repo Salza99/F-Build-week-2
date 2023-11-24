@@ -30,7 +30,7 @@ const ClientSection = () => {
           return <SingleClient client={client} key={client.id} />;
         })
       ) : (
-        <Alert variant="danger">No result or empty search bar!!</Alert>
+        <Alert variant="danger">No result or empty search bar!! click home to wiew all client</Alert>
       )}
     </>
   );
