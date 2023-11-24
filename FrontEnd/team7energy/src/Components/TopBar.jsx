@@ -5,7 +5,7 @@ import { LOGOUT } from "../Redux/Actions/HomePageActions";
 
 import { useState } from "react";
 import CanvasUserDetails from "./homepageSubComponents/CanvasUserDetail";
-import { ChevronDoubleRight } from "react-bootstrap-icons";
+import { ChevronDoubleRight, Search } from "react-bootstrap-icons";
 const TopBar = () => {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
@@ -27,8 +27,15 @@ const TopBar = () => {
             e.preventDefault();
           }}
         >
-          <Form.Control type="search" placeholder="Search" className="justify-content-center" aria-label="Search" />
-          <Button variant="outline-success">Search</Button>
+          <Form.Control
+            type="search"
+            placeholder="Search"
+            className="rounded-pill justify-content-center"
+            aria-label="Search"
+          />
+          <Button className="border-0 btn-lg fs-3" variant="outline-black">
+            <Search></Search>
+          </Button>
         </Form>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">

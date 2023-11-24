@@ -1,14 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllClients } from "../../Redux/Actions/ClientActions";
 import SingleClient from "./SingleClient";
-import { Col } from "react-bootstrap";
 
 const ClientSection = () => {
   const loginState = useSelector((state) => state.login.respLogin);
   const dispatch = useDispatch();
   const clientState = useSelector((state) => state.client.allClient);
-  const [showClients, setShowClients] = useState(false);
+
   useEffect(() => {
     if (loginState.authorizationToken.token) {
       dispatch(fetchAllClients(loginState.authorizationToken.token));
