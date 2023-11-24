@@ -17,7 +17,7 @@ const HomePage = () => {
   return (
     <div>
       <TopBar />
-      <Container fluid>
+      <Container fluid className="full">
         <Row>
           <ClientSection />
         </Row>
